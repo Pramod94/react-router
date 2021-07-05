@@ -4,6 +4,8 @@ import Home from './Components/Home';
 import Category from './Components/Category';
 import Products from './Components/Products';
 
+// Ref link - https://www.sitepoint.com/react-router-complete-guide/#:~:text=%E2%9A%9B%EF%B8%8F%20Writing%20good%20React%20is%20just%20writing%20good%20JavaScript.&text=React%20Router%20is%20the%20de,and%20the%20URL%20in%20sync.
+
 function App() {
   return (
     <div className="App">
