@@ -3,15 +3,27 @@ import { Route, Link, Switch } from 'react-router-dom';
 import Home from './Components/Home';
 import Category from './Components/Category';
 import Products from './Components/Products';
+import PrivateRoute from './PrivateRoute';
+import { Admin } from './Components/Admin';
+import Login from './Components/Login';
+import React from 'react';
+
+export const AuthContext = React.createContext();
+
+const auth = {
+  isAuthenticated: false
+}
 
 function App() {
   return (
     <div className="App">
+      <AuthContext.Provider value={auth}>
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/category">Category</Link></li>
           <li><Link to="/products">Products</Link></li>
+          <li><Link to="/admin">Admin Page</Link></li>
         </ul>
       </nav>
 
@@ -34,7 +46,10 @@ function App() {
       <Route exact path="/"><Home /></Route>
       <Route path="/category"><Category /></Route>
       <Route path="/products"><Products /></Route>
+      <Route path="/login"><Login /></Route>
+      <PrivateRoute path="/admin" component={Admin} />
     </Switch>
+    </AuthContext.Provider>
     </div>
   );
 }
